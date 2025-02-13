@@ -3,12 +3,12 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-content">
         <div className="footer-section">
-          <h3>ColdWater</h3>
+          <h3>ColdDigger</h3>
           <p>Empowering students in their job search journey</p>
         </div>
         <div className="footer-section">
           <h3>Contact</h3>
-          <p>Email: contact@coldwater.com</p>
+          <p>Email: contact@colddigger.com</p>
           <p>Phone: (123) 456-7890</p>
         </div>
         <div className="footer-section">
@@ -21,7 +21,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="footer-bottom">
-        <p>&copy; 2024 ColdWater. All rights reserved.</p>
+        <p>&copy; 2025 ColdDigger. All rights reserved.</p>
       </div>
     </footer>
   );

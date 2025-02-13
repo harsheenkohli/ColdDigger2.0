@@ -46,8 +46,9 @@ const Dashboard = () => {
 
   return (
     <div className="container">
-      <h2>Dashboard</h2>
-      <h3>Welcome, {user?.name ? toTitleCase(user.name) : ''}!</h3>
+      <h3>Dashboard</h3>
+      <h2>Welcome, <span>{user?.name ? toTitleCase(user.name) : ''}</span>!</h2>
+      {/* <h2>Welcome, <span>Harsheen</span>!</h2> */}
       
       {error && <p className="error-message">{error}</p>}
       {uploadStatus && <p className="success-message">{uploadStatus}</p>}
