@@ -25,9 +25,6 @@ SECRET_KEY = 'django-insecure-9qc=xwg&4er8=ul74&5tw!d%v&dxy!8toacnt7w5zzj)^kou9a
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -54,8 +51,11 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",  # Vite default port
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
 ]
+
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 ROOT_URLCONF = 'backend.urls'
 
