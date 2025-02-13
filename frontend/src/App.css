@@ -48,9 +48,11 @@
   box-sizing: border-box;
 }
 
+
 /* Layout & Container */
 .app {
   min-height: 100vh;
+  min-width: 100vw;
   display: flex;
   flex-direction: column;
 }
@@ -157,6 +159,8 @@ textarea {
   padding: 1.5rem;
   border-radius: 8px;
   color: #333;
+  justify-content: center;
+  align-items: center;
 }
 
 .file-upload {
