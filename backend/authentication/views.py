@@ -84,27 +84,57 @@ def upload_files(request):
         return JsonResponse({'error': 'Method not allowed'}, status=405)
     
     try:
-        # Handle CSV file
-        csv_file = request.FILES.get('csv_file')
-        if csv_file:
-            new_contacts_count = process_csv_file(csv_file)
+        new_contacts_count = 0
         
-        # Handle Resume
+        # Handle Resume and Position
         resume_file = request.FILES.get('resume')
-        if resume_file:
-            # Update or create resume
+        position = request.POST.get('position', '')
+        
+        # Update or create resume with position
+        if resume_file or position:
+            defaults = {}
+            if resume_file:
+                defaults['resume'] = resume_file
+            if position:
+                defaults['position'] = position
+                
             UserResume.objects.update_or_create(
                 user=request.user,
-                defaults={'resume': resume_file}
+                defaults=defaults
             )
         
+        # Handle optional CSV file
+        csv_file = request.FILES.get('csv_file')
+        if csv_file:
+            try:
+                new_contacts_count = process_csv_file(csv_file)
+            except ValueError as e:
+                return JsonResponse({'error': str(e)}, status=400)
+            except Exception as e:
+                return JsonResponse({'error': f'Error processing CSV: {str(e)}'}, status=400)
+        
         return JsonResponse({
-            'message': 'Files processed successfully',
-            'new_contacts_added': new_contacts_count if csv_file else 0
+            'message': 'Upload successful',
+            'new_contacts_added': new_contacts_count
         })
         
     except Exception as e:
         return JsonResponse({'error': str(e)}, status=400)
+
+# Add new view to get position
+@csrf_exempt
+def get_user_position(request):
+    if not request.user.is_authenticated:
+        return JsonResponse({'error': 'Authentication required'}, status=401)
+    
+    try:
+        user_resume = UserResume.objects.get(user=request.user)
+        return JsonResponse({
+            'position': user_resume.position,
+            'updated_at': user_resume.updated_at
+        })
+    except UserResume.DoesNotExist:
+        return JsonResponse({'error': 'No position found'}, status=404)
 
 @csrf_exempt
 def get_user_resume(request):
