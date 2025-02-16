@@ -191,7 +191,8 @@ def generate_email(recipient_name, company, position, sender_name):
     - Wherever company being applied to is required, use {company}
     - Wherever position being applied for is required, use {position}
     - Do not have any placeholders, fill them properly from parsed resume and backend data
-        
+    - Fill all placeholders of this bracket '[]' with appropriate information, do not leave the square brackets as is
+
     Return only the email body.
     """
     
