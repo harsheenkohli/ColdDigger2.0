@@ -5,6 +5,13 @@
   box-sizing: border-box;
 }
 
+::selection {
+
+  background-color: #efc7ff; /* Light gray background */
+  color: #333; 
+}
+
+
 @keyframes gradientBG {
   0% {
     background-position: 0% 50%
