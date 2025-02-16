@@ -21,7 +21,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="footer-bottom">
-        <p>&copy; 2025 ColdDigger. All rights reserved.</p>
+        <p style={{marginTop: "35px"}}> <center>&copy; 2025 ColdDigger. All rights reserved.</center></p>
       </div>
     </footer>
   );

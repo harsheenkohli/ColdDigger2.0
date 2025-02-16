@@ -286,6 +286,7 @@ select:focus {
 .social-links a {
   color: #66fcf1;
   transition: all 0.3s ease;
+  margin-right: 10px;
 }
 
 .social-links a:hover {
