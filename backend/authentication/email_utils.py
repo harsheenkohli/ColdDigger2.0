@@ -187,7 +187,11 @@ def generate_email(recipient_name, company, position, sender_name):
     - Mention specific interest in {company}
     - Reference attached resume
     - Request to discuss further
-    
+    - Wherever sender's name is required, use {sender_name}
+    - Wherever company being applied to is required, use {company}
+    - Wherever position being applied for is required, use {position}
+    - Do not have any placeholders, fill them properly from parsed resume and backend data
+        
     Return only the email body.
     """
     

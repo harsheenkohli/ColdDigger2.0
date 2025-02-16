@@ -28,7 +28,7 @@ const ContactForm = () => {
 
   return (
     <div className="container contact-box">
-      <h2>Contact Us</h2>
+      <h2 style={{marginBottom: "10px"}}>Contact Us</h2>
       {submitStatus && <p className="success-message">{submitStatus}</p>}
       <form onSubmit={handleSubmit}>
         <input
