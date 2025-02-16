@@ -16,7 +16,8 @@ const Navbar = () => {
       <div className="navbar-brand">
         <div className="brand-content">
           <img src="./favicon.png" alt="ColdDigger Logo" className="navbar-logo" />
-          <h2 className="brand-name">ColdDigger</h2>
+          <Link to="/"><h2 className="brand-name">
+            ColdDigger</h2></Link>
         </div>
       </div>
       <ul>
